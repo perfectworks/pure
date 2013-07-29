@@ -7,6 +7,7 @@ cmd_exec_time() {
     local start=${cmd_timestamp:-$stop}
     let local elapsed=$stop-$start
     [ $elapsed -gt $CMD_MAX_EXEC_TIME ] && echo ${elapsed}s
+    unset cmd_timestamp
 }
 
 preexec() {
